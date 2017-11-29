@@ -5,6 +5,7 @@ import ListHeading from './ListHeading';
 import ListHeadingRow from './ListHeadingRow';
 import ListBody from './ListBody';
 import ListContainer from './ListContainer';
+import ListCaption from './ListCaption';
 
 const renderListHeadings = (headings) => (
   <ListHeadings>
@@ -26,8 +27,13 @@ const renderListBody = (children) => (
   </ListBody>
 );
 
+const renderListCaption = (props) => (
+  props.caption ? ( <ListCaption>{props.caption}</ListCaption>) : null
+);
+
 const List = (props) => (
   <ListContainer>
+    {renderListCaption(props)}
     {renderListHeadings(props.headings)}
     {renderListBody(props.children)}
   </ListContainer>
@@ -45,6 +51,7 @@ List.propTypes = {
     sortAscending: PropTypes.bool.isRequired,
   })),
   children: PropTypes.node,
+  caption: PropTypes.string,
 };
 
 export default List;
