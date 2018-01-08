@@ -17,7 +17,6 @@ const setHeadingProps = (headings, sortKey, sortAscending) => {
       headings[i].sortAscending = sortAscending;
     }
   } 
-  console.log(headings);
   return headings;
 }
 
@@ -78,5 +77,6 @@ List.propTypes = {
   sortKey: PropTypes.string,
   sortAscending: PropTypes.bool,
 };
+
 
 export default List;
